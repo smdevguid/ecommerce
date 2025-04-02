@@ -2,7 +2,7 @@ package edu.sm_devguid.ecommerce.backend.infraestructure.mapper;
 
 
 import edu.sm_devguid.ecommerce.backend.domain.model.User;
-import edu.sm_devguid.ecommerce.backend.infraestructure.UserEntity;
+import edu.sm_devguid.ecommerce.backend.infraestructure.entity.UserEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

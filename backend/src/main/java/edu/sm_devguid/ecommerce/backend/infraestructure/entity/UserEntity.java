@@ -1,4 +1,4 @@
-package edu.sm_devguid.ecommerce.backend.infraestructure;
+package edu.sm_devguid.ecommerce.backend.infraestructure.entity;
 
 import edu.sm_devguid.ecommerce.backend.domain.model.UserType;
 import jakarta.persistence.*;
@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.time.LocalDateTime;
 
