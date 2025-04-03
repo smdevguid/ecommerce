@@ -3,7 +3,9 @@ package edu.sm_devguid.ecommerce.backend.infraestructure.adapter;
 import edu.sm_devguid.ecommerce.backend.domain.model.User;
 import edu.sm_devguid.ecommerce.backend.domain.port.IUserRepository;
 import edu.sm_devguid.ecommerce.backend.infraestructure.mapper.IUserMapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserCrudRepositoryImpl implements IUserRepository {
     private final IUserCrudRepository userCrudRepository;
     private final IUserMapper userMapper;
