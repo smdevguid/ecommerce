@@ -1,9 +1,11 @@
 package edu.sm_devguid.ecommerce.backend.infraestructure.config;
 
 import edu.sm_devguid.ecommerce.backend.application.CategoryService;
+import edu.sm_devguid.ecommerce.backend.application.OrderService;
 import edu.sm_devguid.ecommerce.backend.application.ProductService;
 import edu.sm_devguid.ecommerce.backend.application.UserService;
 import edu.sm_devguid.ecommerce.backend.domain.port.ICategoryRepository;
+import edu.sm_devguid.ecommerce.backend.domain.port.IOrderRepository;
 import edu.sm_devguid.ecommerce.backend.domain.port.IProductRepository;
 import edu.sm_devguid.ecommerce.backend.domain.port.IUserRepository;
 import edu.sm_devguid.ecommerce.backend.infraestructure.adapter.*;
@@ -53,5 +55,9 @@ public class BeanConfiguration {
     public IProductRepository productRepository(IProductCrudRepository productCrudRepository, IProductMapper productMapper){
         return new ProductCrudRepositoryImpl(productCrudRepository, productMapper);
     }*/
+    @Bean
+    public OrderService orderService(IOrderRepository iOrderRepository){
+        return new OrderService(iOrderRepository);
+    }
 }
 
