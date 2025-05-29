@@ -9,8 +9,10 @@ import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.*;
+import java.io.IOException;
 import java.math.BigDecimal;
 
 @RestController
@@ -25,17 +27,18 @@ public class ProductController {
     //http://localhost:8085/api/v1/admin/products
     @PostMapping
     public ResponseEntity<Product> save(
-                                        @RequestParam("id") Integer id,
-                                        @RequestParam("name") String name,
-                                        @RequestParam("code") String code,
-                                        @RequestParam("description") String description,
-                                        @RequestParam("price")BigDecimal price,
-                                        @RequestParam("urlImage") String urlImage,
-                                        @RequestParam("userId") Integer userId,
-                                        @RequestParam("categoryId")Integer categoryId){
+            @RequestParam("id") Integer id,
+            @RequestParam("name") String name,
+            @RequestParam("code") String code,
+            @RequestParam("description") String description,
+            @RequestParam("price")BigDecimal price,
+            @RequestParam("urlImage") String urlImage,
+            @RequestParam("userId") Integer userId,
+            @RequestParam("categoryId")Integer categoryId,
+            @RequestParam(value = "image", required = false)MultipartFile file) throws IOException {
 
         Product product  = new Product();
-        if(id!= 0){
+        if(id > 0){
             product.setId(id);
         }
         product.setName(name);
@@ -47,7 +50,7 @@ public class ProductController {
         product.setUrlImage(urlImage);
 
         log.info("Nombre producto: {}", product.getName());
-        return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
+        return new ResponseEntity<>(productService.save(product, file), HttpStatus.CREATED);
     }
     //http://localhost:8085/api/v1/admin/products
     @GetMapping

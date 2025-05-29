@@ -1,9 +1,6 @@
 package edu.sm_devguid.ecommerce.backend.infraestructure.config;
 
-import edu.sm_devguid.ecommerce.backend.application.CategoryService;
-import edu.sm_devguid.ecommerce.backend.application.OrderService;
-import edu.sm_devguid.ecommerce.backend.application.ProductService;
-import edu.sm_devguid.ecommerce.backend.application.UserService;
+import edu.sm_devguid.ecommerce.backend.application.*;
 import edu.sm_devguid.ecommerce.backend.domain.port.ICategoryRepository;
 import edu.sm_devguid.ecommerce.backend.domain.port.IOrderRepository;
 import edu.sm_devguid.ecommerce.backend.domain.port.IProductRepository;
@@ -46,8 +43,8 @@ public class BeanConfiguration {
     //Config Product
 
     @Bean
-    public ProductService productService(IProductRepository iProductRepository){
-        return new ProductService(iProductRepository);
+    public ProductService productService(IProductRepository iProductRepository, UploadFileService uploadFileService){
+        return new ProductService(iProductRepository,uploadFileService);
     }
     /*
     @Bean
